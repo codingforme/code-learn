@@ -1,0 +1,1 @@
+console.log('我是module2.js啊啊啊');

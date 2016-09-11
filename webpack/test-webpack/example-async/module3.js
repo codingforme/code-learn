@@ -1,0 +1,1 @@
+console.log('我是module3.js啊啊啊');

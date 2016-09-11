@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./module3.js"],"names":[],"mappings":";;;;;;AAAA,gC","file":"2.chunk.js","sourcesContent":["console.log('我是module3.js啊啊啊');\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./module3.js\n ** module id = 3\n ** module chunks = 2\n **/"],"sourceRoot":""}

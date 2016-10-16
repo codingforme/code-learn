@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<title>MockJS-demo</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="mock.js"></script>
+</head>
+<body>    
+<script>
+	Mock.mock('http://g.cn', {
+		'name'     : '@name',
+		'age|1-100': 100,
+		'color'    : '@color'
+	});
+	
+	$.ajax({
+		url: 'http://g.cn',
+		dataType:'json'
+	}).done(function(data, status, xhr){
+		document.writeln(JSON.stringify(data, null, 4));
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>transform</title>
+        <style>
+            body {
+                background: #eee;
+            }
+            svg {
+                position: absolute;
+                border: 1px solid green;
+                width: 300px;
+                height: 200px;
+                left: 50%;
+                top: 50%;
+                margin-top: -100px;
+                margin-left: -150px;
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+		<svg id="svg" xmlns="http://www.w3.org/2000/svg">
+			<rect width="200" height="100" stroke="red" stroke-width="2" fill="none" transform="translate(50) rotate(30) "/>
+		</svg>
+    </body>
+</html>

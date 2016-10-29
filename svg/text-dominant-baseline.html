@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Text-dominant-baseline</title>
+</head>
+<body>
+    <select id="ta">
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="middle">middle</option>
+	</select>
+    <select id="select">
+      <option value="auto">auto</option>
+      <option value="use-script">use-script</option>
+      <option value="no-change">no-change</option>
+      <option value="reset-size">reset-size</option>
+      <option value="ideographic">ideographic</option>
+      <option value="alphabetic">alphabetic</option>
+      <option value="hanging">hanging</option>
+      <option value="mathematical">mathematical</option>
+      <option value="central">central</option>
+      <option value="middle">middle</option>
+      <option value="text-after-edge">text-after-edge</option>
+      <option value="text-before-edge">text-before-edge</option>
+      <option value="text-top">text-top</option>
+      <option value="text-bottom">text-bottom</option>
+	</select>
+    <svg>
+      <path stroke="green" d="M 0 100.5 500 100.5 M 140 0 v 200"></path>
+      <text id="text" x="140" y="100" fill="red" font-size="50" dominant-baseline="text-bottom">中国人</text>
+      <rect id="rect" stroke="blue" fill="none" x="140" y="57" width="150" height="50"></rect>
+    </svg>
+	<script>
+ 
+	var values = "auto | use-script | no-change | reset-size | ideographic | alphabetic | hanging | mathematical | central | middle | text-after-edge | text-before-edge | text-top | text-bottom".split(' | ');
+
+	values.forEach(function(value) {
+	  var opt = document.createElement('option');
+	  opt.value = opt.textContent = value;
+	  select.appendChild(opt);
+	});
+
+	select.addEventListener('input',
+	function() {
+	  text.setAttribute('dominant-baseline', select.value);
+	  var box = text.getBBox();
+	  rect.setAttribute('x', box.x);
+	  rect.setAttribute('y', box.y);
+	  rect.setAttribute('width', box.width);
+	  rect.setAttribute('height', box.height);
+	});
+
+	ta.addEventListener('input',
+	function() {
+	  text.setAttribute('text-anchor', ta.value);
+	});
+	</script>
+</body>
+</html>

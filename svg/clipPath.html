@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SVG-demo</title>
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+<body>    
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<clipPath id="c-star">
+			<polygon points="150 100 179.389 9.54915 102.447 65.4509 197.533 65.4509 120.611 9.54915"/>
+		</clipPath>
+		<clipPath id="c-star-rule">
+			<polygon points="150 100 179.389 9.54915 102.447 65.4509 197.533 65.4509 120.611 9.54915" transform="translate(-100)" clip-rule="evenodd"/>
+		</clipPath>
+		<clipPath id="c-two-grap">
+			<polygon points="150 100 179.389 9.54915 102.447 65.4509 197.533 65.4509 120.611 9.54915" transform="translate(0, 100)" />
+			<rect x="100" y="100" width="50" height="50" />
+		</clipPath>
+	</defs>
+	<rect x="100" y="0" fill="red" width="100" height="100" clip-path="url(#c-star)"/>
+	<rect x="0" y="0" fill="green" width="100" height="100" clip-path="url(#c-star-rule)"/>
+	<rect x="100" y="100" fill="blue" width="100" height="100" clip-path="url(#c-two-grap)"/>
+</svg>
+
+</body>
+</html>

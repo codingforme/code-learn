@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SVG-demo</title>
+		<style>
+			html,body,svg{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+<body>    
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-200 -200 800 800">
+	<rect x="50" y ="50" width="50" height="50" fill="red">
+		<animateTransform attributeName="transform"
+			attributeType="XML"
+			type="rotate"
+			from="0 75 75"
+			to="360 75 75"
+			dur="2"
+			repeatCount="indefinite"/>
+	</rect> 
+	<!--x、y都放大了-->
+	<rect x="50" y ="150" width="50" height="50" fill="green">
+		<animateTransform attributeName="transform"
+			attributeType="XML"
+			type="scale"
+			from="1"
+			to="2"
+			dur="2"
+			fill="freeze"/>
+	</rect> 	
+	<rect x="50" y ="250" width="50" height="50" fill="blue">
+		<animateTransform attributeName="transform"
+			attributeType="XML"
+			type="translate"
+			to="250 0"
+			dur="2"
+			fill="freeze"/>
+	</rect> 
+	<rect x="50" y ="150" width="50" height="50" fill="black">
+		<animateTransform attributeName="transform"
+			attributeType="XML"
+			type="rotate"
+			from="0 75 125"
+			to="360 75 125"
+			dur="2"
+			repeatCount="indefinite" additive="sum"/>
+		<animateTransform attributeName="transform"
+			attributeType="XML"
+			type="scale"
+			from="1"
+			to="2"
+			dur="2"
+			fill="freeze" additive="sum"/>
+	</rect> 
+</svg>
+</body>
+</html>

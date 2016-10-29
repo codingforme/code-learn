@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SVG-demo</title>
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+<body>    
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="Gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="0">
+			<stop offset="0" stop-color="white" stop-opacity="0" />
+			<stop offset="1" stop-color="white" stop-opacity="1" />
+		</linearGradient>
+		<mask id="Mask" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="300">
+			<rect x="0" y="0" width="800" height="300" fill="url(#Gradient)" />
+		</mask>
+		<mask id="Mask2" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="300">
+			<rect x="0" y="0" width="800" height="300" fill="red" />
+		</mask>
+		<text id="Text" x="400" y="200" font-family="Verdana" font-size="100" text-anchor="middle" >
+			Masked text
+		</text>
+	</defs>
+	<rect x="0" y="0" width="800" height="300" fill="none" />
+	<use xlink:href="#Text" fill="blue" y="-100" />
+	<use xlink:href="#Text" fill="blue" mask="url(#Mask)" />
+	<use xlink:href="#Text" fill="blue" mask="url(#Mask2)" y="100" />
+</svg>
+</body>
+</html>

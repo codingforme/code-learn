@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SVG-demo</title>
+		<style>
+			html,body,svg{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+<body>    
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<text x="50" y="30" id="t" stroke="red">click red go</text>
+	<rect x="50" y ="50" width="100" height="50" fill="red">
+		<animate attributeType="XML"
+			attributeName="x"
+			begin="t.click"
+			from="50"
+			to="400"
+			dur="5s"
+			fill="freeze">
+		</animate>
+	</rect> 
+	<rect x="50" y ="150" width="100" height="50" fill="green">
+		<!--表示的是3s之后动画开始，10s时候动画再开始一次
+			（如果之前动画没走完，会立即停止从头开始）-->
+		<animate attributeType="XML"
+			attributeName="x"
+			begin="3s;10s" 
+			from="50"
+			to="400"
+			dur="5s"
+			fill="freeze">
+		</animate>
+	</rect> 
+	<rect x="50" y ="250" width="100" height="50" fill="blue">
+		<animate id="goleft" attributeType="XML" 
+			attributeName="x"
+			from="50"
+			to="400"
+			dur="5s"
+			fill="freeze"
+			>
+		</animate>
+		<!--注意begin的id是animate的id，不是元素的-->
+		<animate attributeType="XML" 
+			attributeName="y"
+			begin="goleft.end"
+			to="350"
+			dur="2s"
+			fill="freeze"
+			>
+		</animate>
+	</rect> 
+	<rect x="50" y ="350" width="100" height="50" fill="orange">
+		<animate id="goleft" attributeType="XML" 
+			attributeName="x"
+			from="50"
+			to="400"
+			dur="5s"
+			fill="freeze"
+			>
+		</animate>
+		<!--注意begin的id是animate的id，不是元素的-->
+		<animate attributeType="XML" 
+			attributeName="y"
+			to="400"
+			dur="5s"
+			fill="freeze"
+			>
+		</animate>
+	</rect> 
+	<line stroke='black' x1="50" y1="350" x2="500" y2="350"/>
+	<line stroke='black' x1="50" y1="400" x2="500" y2="400"//>
+</svg>
+</body>
+</html>

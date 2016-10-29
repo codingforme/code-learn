@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SVG-demo</title>
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+<body>    
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<rect id="rU" x="0" y="0" width="100" height="100" fill="red" />
+	<text x="50" y="50" text-anchor="middle" fill="white">原型</text>
+	<use xlink:href="#rU" y="120"/>
+	<text x="50" y="180" text-anchor="middle" fill="white">简单引用</text>
+	<use xlink:href="#rU" y="240" fill="green"/>
+	<text x="50" y="300" text-anchor="middle" fill="white">改fill绿色</text>
+	<use xlink:href="#rU" x="120" y="0" width="50" height="50"/>
+	<text x="170" y="50" text-anchor="middle" fill="white">设小宽高</text>
+	<use xlink:href="#rU" x="120" y="120" width="200" height="200"/>
+	<text x="170" y="180" text-anchor="middle" fill="white">设大宽高</text>
+	<use xlink:href="#rU" x="120" y="240" style="background:green;"/>
+	<text x="170" y="300" text-anchor="middle" fill="white">设置样式</text>
+	<use xlink:href="#rU" x="240" y="0" stroke="blue" stroke-width="2" />
+	<text x="290" y="50" text-anchor="middle" fill="white">额外边框</text>
+	<!--结论：原型已经设置的属性，引用会继承，并且不能覆盖，除了x、y。-->
+	<!--所以想引用能够设某个属性，那原型就不能设置。-->
+</svg>
+
+</body>
+</html>

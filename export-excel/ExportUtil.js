@@ -76,7 +76,7 @@
 				//on safari:  TypeError: '[object BlobConstructor]' is not a constructor (evaluating 'new Blob([str],{
 				//import Blob.js to fix, but still have a problem : the fileName will be 'Unknown' , but if you add suffix name, content can be seen.
 				blob = new Blob([str],{
-					type: "text/plain" || EXCEL_CONTENTTYPE
+					type: EXCEL_CONTENTTYPE
 				});
 				saveAs(blob, fileName || "Download.xls");	
 			}

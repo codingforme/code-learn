@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    	.video-player{
+    		width: 
+    	}
+    </style>
+</head>
+<body>
+	<div class="video-player">
+    	<video preload="auto" controls autoplay></video>
+	</div>
+	<script>
+		var videoUrl = 'https://link.bingocc.com:8089/store/store/getFile?fileId=a2b$850ceedae485784211bd330074e5e&amp;name=v_20170808_231205.mp4';
+		var video = document.querySelector('.video-player video'),
+			totalTime = 0 //总时长;
+		video.src = videoUrl;
+		video.addEventListener("loadedmetadata", function(){
+		    totalTime = video.duration;//获取总时长
+		});
+		video.addEventListener("timeupdate", function(){ //播放时间点更新时
+		    var currentTime = video.currentTime;
+		    console.log(currentTime);//在调试器中打印
+		});
+
+		//播放
+		function play(){ 
+		    video.play();
+		}
+
+		//暂停
+		function pause(){ 
+		    video.pause();
+		}
+
+		//设置播放点
+		function setPlayTime(num){ 
+		    video.currentTime = num;
+		}
+
+		//设置音量
+		function setVol(num){ 
+		    video.volume = num;
+		}
+	</script>
+</body>
+</html>

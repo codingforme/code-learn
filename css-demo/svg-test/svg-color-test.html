@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>测试SVG图片换颜色</title>
+    <style>
+      div{
+        margin: 4px;
+        border: 1px solid gray;
+      }
+      img, i{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+      }
+      .icon-del{
+        background-image: url(delete.svg);
+      }
+      .icon-del2{
+        background-image: url(delete-cl.svg);
+      }
+      .dddd{
+        fill: #ea4c89;
+      }
+      .st0{fill:gray !important;}
+      .st1{fill:blue !important;}
+    </style>
+</head>
+<body>
+    <div>
+        img引用：
+        <img src="delete.svg" />
+    </div>
+    <div>
+        背景图引用：
+        <i class="icon-del"></i>
+        <i class="icon-del2"></i>
+    </div>
+</body>
+</html>

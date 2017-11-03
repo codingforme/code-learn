@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .con{
+      width: 400px;
+      height: 400px;
+      border: 1px solid #4ec844;
+      outline: none;
+    }
+    .con:empty:before{ 
+      content: '说点啥好呢？'; 
+      color: gray; 
+    } 
+    .con:focus:before{
+      content:none;
+    }
+    </style>
+</head>
+<body>
+    <div class="con" contenteditable="true"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .a{
+      width: 500px;
+      height: 500px;
+      background: aliceblue;
+    }
+    .b{
+      width: 200px;
+      height: 200px;
+      background: beige;
+    }
+    .c{
+      width: 100px;
+      height: 100px;
+      background: violet;
+    }
+    </style>
+</head>
+<body>
+    <div class="a">A
+      <div class="b" 
+        onmouseenter="mouseenter()"
+        onmouseleave="mouseleave()"
+        onmouseout="mouseout()"
+        onmouseover="mouseover()"
+        onmousemove="mousemove()">B
+        <div class="c">C
+        </div>
+      </div>
+    </div>
+    <script>
+      function mouseenter(){
+        console.log('mouseenter')
+      }
+      function mouseleave(){
+        console.log('mouseleave')
+      }
+      function mouseout(){
+        console.log('mouseout')
+      }
+      function mouseover(){
+        console.log('mouseover')
+      }
+      function mousemove(){
+        console.log('mousemove')
+      }
+    </script>
+</body>
+</html>

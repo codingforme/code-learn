@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .face1{
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          background-image: url(face.svg);
+        }
+        .face2{
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+        }
+        .face2 i{
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          background-image: url(face.svg);
+          transform: translateX(-100%);
+          -webkit-filter:drop-shadow(40px 0 #F88E1D);
+        }
+        .face3{
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+          background-image: url(face.svg);
+        }
+        .face3:after{
+          content: '';
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          transform: translateX(-100%);
+          -webkit-filter:drop-shadow(40px 0 #F88E1D);
+          background: inherit;
+        }
+    </style>
+</head>
+<body>
+    <h3>原始图标：</h3>
+    <span class="face1"></span>
+    <h3>染色图标(两层标签)：</h3>
+    <span class="face2"><i></i></span>
+    <h3>染色图标(after)：</h3>
+    <span class="face3"></span>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    	img{
+    		height: 200px;
+    	}
+    	label{
+    		display: block;
+    	}
+    	.rd-box1{
+    		border-radius: 10px;
+    	}
+    	.rd-box1 img{
+    		border-radius: 10px;
+    	}
+    	.rd-box2{
+    		position: relative;
+    		display: inline-block;
+    	}
+    	.rd-box2 img{
+    		display: block;
+    	}
+    	.rd-box2 .left-top,
+    	.rd-box2 .right-top,
+    	.rd-box2 .left-bottom,
+    	.rd-box2 .right-bottom{
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            z-index: 1;
+        }
+        .rd-box2 .left-top{
+        	top: 0;
+            left: 0;
+            background: radial-gradient(20px at right bottom,transparent 50%,#F4F4F4 50%);
+        }
+        .rd-box2 .right-top{
+        	top: 0;
+            right: 0;
+            background: radial-gradient(20px at left bottom,transparent 50%,#F4F4F4 50%);
+        }
+        .rd-box2 .left-bottom{
+        	bottom: 0;
+            left: 0;
+            background: radial-gradient(20px at right top,transparent 50%,#F4F4F4 50%);
+        }
+        .rd-box2 .right-bottom{
+        	bottom: 0;
+            right: 0;
+            background: radial-gradient(20px at left top,transparent 50%,#F4F4F4 50%);
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+    	//图片自适应填充，并居中显示。
+	    function centerThisImg(el, maxWidth, maxHeight){
+	        var $img = $(el),
+	            img = $img[0];
+	        var imgHeight = img.naturalHeight,
+	            imgWidth = img.naturalWidth,
+	            finalWidth,
+	            finalHeight,
+	            tsffix = '';
+	        var rm = maxWidth / maxHeight,
+	            r = imgWidth / imgHeight;
+
+	        if(r < rm){
+	            finalWidth = maxWidth;
+	            finalHeight = maxWidth / r;
+	            tsffix = 'translateY(-' + (finalHeight - maxHeight) / 2 + 'px)';
+	        } else {
+	            finalHeight = maxHeight;
+	            finalWidth = maxHeight * r;
+	            tsffix = 'translateX(-' + (finalWidth - maxWidth) / 2 + 'px)';
+	        }
+	        $img.css({width: finalWidth, height: finalHeight, transform: tsffix});
+	    }
+    </script>
+</head>
+<body>
+	<!--
+	https://stackoverflow.com/questions/8582176/should-border-radius-clip-the-content
+    -->
+	<label>原始图片：</label>
+    <div>
+        <img src="mao.png" />
+    </div>
+    <label>图片圆角：</label>
+    <div class="rd-box1">
+        <img src="mao.png" />
+    </div>
+    <label>遮挡法模拟出圆角：</label>
+    <div class="rd-box2">
+        <i class="left-top"></i>
+        <i class="right-top"></i>
+        <i class="left-bottom"></i>
+        <i class="right-bottom"></i>
+        <img src="mao.png" />
+    </div>
+    <label>正方形居中显示并且圆角：</label>
+    <div class="rd-box2" style="width:200px;height:200px;overflow:hidden;">
+        <i class="left-top"></i>
+        <i class="right-top"></i>
+        <i class="left-bottom"></i>
+        <i class="right-bottom"></i>
+        <img src="mao.png" onload="centerThisImg(this, 200, 200)"/>
+    </div>
+</body>
+</html>

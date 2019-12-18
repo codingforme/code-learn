@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<title>MockJS-demo</title>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>    
+<script>
+
+	var counter = 0;
+	var under1000 = 0,
+		under2000 = 0,
+		under5000 = 0,
+		under30000 = 0,
+		over30000 = 0; 
+	function testTimeout(){
+		var t1 = new Date().getTime();
+		$.ajax({
+			url: 'https://www.bingolink.biz/uam/api/user/searchUsers?page=1&size=13&showSize=7&scope=1&keyword=%E5%8D%A2%E4%B8%B0'
+		}).done(function(data, status, xhr){
+			var t2 = new Date().getTime(),
+				nap = t2 - t1;
+			if(nap < 1000){
+				under1000++;
+			} else if(nap < 2000){
+				under2000++;
+			} else if(nap < 5000){
+				under5000++;
+			} else if(nap < 30000){
+				under30000++;
+			} else {
+				over30000++;
+			}
+
+			testTimeout();
+			counter++;
+			var str = '测试次数：' + counter + '<br />'
+				+ '小于1秒调用的次数：' + under1000 + '<br />'
+				+ '小于2秒调用的次数：' + under2000 + '<br />'
+				+ '小于5秒调用的次数：' + under5000 + '<br />'
+				+ '小于30秒调用的次数：' + under30000 + '<br />'
+				+ '大于30秒调用的次数：' + over30000 + '<br />';
+			$('body').html(str)
+		});
+	}
+
+	testTimeout();
+	
+</script>
+</body>
+</html>
